@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="css/materialicons.css" />
+    <link rel="stylesheet" href="css/materialize.min.css" />
+    <script type="text/javascript" src="js/materialize.min.js" defer></script>
+    <meta charset="UTF-8" />
+    <title>LIFAP5 2019-2020 - Client</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-extended blue-grey lighten-1">
+            <div class="navbar-fixed">
+                <nav>
+                    <div class="nav-wrapper blue-grey">
+                        <ul class="left hide-on-med-and-down">
+                            <li>
+                                <i id="id-login" class="material-icons">face</i>
+                            </li>
+                            <li>
+                                <form>
+                                    <div class="input-field  blue-grey lighten-3" id="container_search">
+                                        <input id="search" type="search" required />
+                                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                        <i class="material-icons">close</i>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                        <a href="index.html" class="brand-logo  center">Brain Games<i class="material-icons right">question_answer</i></a>
+                    </div>
+                    <!-- nav-wrapper  -->
+                </nav>
+            </div>
+            <!-- navbar-fixed -->
+            <div class="nav-content">
+                <ul class="tabs tabs-transparent tabs-fixed-width">
+                    <li class="tab">
+                        <a class="active" href="#id-all-quizzes">Tous les quiz</a>
+                    </li>
+                    <li class="tab"><a href="#id-my-quizzes" id="id-mesquizzes">Mes quiz</a></li>
+                    <li class="tab"><a href="#id-my-answers" id="id-mesreponses">Mes réponses</a></li>
+                </ul>
+            </div>
+            <!-- nav-content -->
+        </nav>
+        <!-- nav-extended -->
+    </header>
+
+    <main>
+        <!-- id="info-user": permet d'affichage les messages a user dans quelsque millisconde -->
+        <center>
+            <div id="info-user"></div>
+        </center>
+        <center>
+            <div class="row">
+                <span class="col l4" id="txteAvertissement"></span>
+            </div>
+        </center>
+        <div class="row">
+            <div id="connex_box" class="col l8">
+                <i class="material-icons" id="btn_cancel">cancel</i>
+                <label class="connex_deconnex">Connexion/Déconnexion</label>
+                <label id="etatConnexion"></label>
+                <label class="lstname_label">Nom</label>
+                <div>
+
+                    <input type="text" name="nom" id="idlstename_userConnecte" disabled="true" />
+                </div>
+
+                <label class="frstname_label">Prénom</label>
+                <div>
+                    <input type="text" name="prenom" id="idfirsname_userConnecte" disabled="true" />
+                </div>
+
+                <label class="identif_label">Identifiant</label>
+                <div>
+                    <input type="text" name="identifiant" id="identif_userConnecte" disabled="true" />
+                </div>
+
+                <label class="apikey_label">Clé API</label>
+                <div>
+                    <input type="text" name="Api_Key" id="idapikey_userConnecte" disabled="true" />
+                    <i class="material-icons" id="btn_chnge_api">border_color</i>
+                </div>
+                <input type="button" name="connexion" id="bttn_connex_deconnex" class="btn" value="connexion" disabled="true" />
+
+                <input type="button" name="deconnexion" id="bttn_deconnex" class="btn" value="deconnexion" disabled="true" />
+
+            </div>
+        </div>
+        <div>
+            <!-- class="container" -->
+            <!-- Un premier onglet pour tous les quizzes-->
+            <div id="id-all-quizzes">
+
+                <div class="row">
+                    <div class="input-field col l2">
+                        <select id="select_nombre_quizz">
+                            <option value="" disabled selected>Nombre</option>
+                            <option value="2">2</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        <label>Nombre de Quizze/Page</label>
+                    </div>
+                    <div class="input-field col l2">
+                        <select id="select_critere_tri_quizz">
+                            <option value="" disabled selected>Trier par</option>
+                            <option value="quiz_id">ID du quizze</option>
+                            <option value="created_at">Date d'ajout</option>
+                            <option value="owner_id">Proprietaire</option>
+                        </select>
+                        <label>Critère de tri des quizzes</label>
+                    </div>
+                    <div class="input-field col l2">
+                        <select id="select_ordreTri_quizz">
+                            <option value="" disabled selected>Ordre</option>
+                            <option value="asc">Ascendant</option>
+                            <option value="desc">Descendant</option>
+                        </select>
+                        <label>Ordre de tri</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l4">
+                        <div id="id-all-quizzes-list"></div>
+                    </div>
+                    <div class="col l8">
+                        <div id="id-all-quizzes-main"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Un second onglet pour ses propres quizzes-->
+            <div id="id-my-quizzes">
+                <div class="row">
+                    <div class="col l4" id="id-mes-quizzes-list"></div>
+                    <div class="col l8" id="id-ajout-quizzes">
+                        <div id="div_creer_cmpte">
+                            <div class="row">
+                                <h4>Créer Nouveau Quizze</h4>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col l6">
+                                    <input id="titr_quizze" type="text">
+                                    <label for="titr_quizze">Titre</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col l8">
+                                    <textarea id="desc_quizze" class="materialize-textarea"></textarea>
+                                    <label for="desc_quizze">Description</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col l4">
+                                    <button class="btn waves-effect waves-light" type="button" id="btn_creer_quizze">Créer
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div_Ajoute_Question">
+                            <div class="row">
+                                <div class="retour_creer_quizz col l8" id="btn_retour_creer_quizz">
+                                    <label class="waves-effect waves-light"><i class="material-icons right">arrow_back</i>créer quizze
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col l6">
+                                    <h4 id="question_titr_quizze"></h4>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col l8">
+                                        <h6 id="question_desc_quizze"></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col l8">
+                                    <textarea id="question_quizze" class="materialize-textarea"></textarea>
+                                    <label for="question_quizze">Saisissez votre question</label>
+                                    <div class="row"><label class="texte">N'oubliez pas de cocher la bonne réponse *</label></div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col l10">
+                                    <div class="input-field col l8">
+                                        <textarea id="pro1_quizze" class="materialize-textarea"></textarea>
+                                        <label for="pro1_quizze">Première proposition</label>
+                                    </div>
+                                    <div class="input-field col l2">
+                                        <label> <input name="proposition" type="radio" id="rad1" checked="true" /> <span></span> </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col l10">
+                                    <div class="input-field col l8">
+                                        <textarea id="pro2_quizze" class="materialize-textarea"></textarea>
+                                        <label for="pro2_quizze">Deuxieme proposition</label>
+                                    </div>
+                                    <div class="input-field col l2">
+                                        <label> <input name="proposition" type="radio" id="rad2" /> <span></span> </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="container_pro_quizz_dynamique"></div>
+                            <div class="row" id="content_ajout_propostion"></div>
+                            <div class="row" id="content_envoyer_questionnaire"></div>
+                        </div>
+                        <div id="div_modif_Quizz">
+                            <div class="row">
+                                <div class="retour_creer_quizz col l8" id="btn_retour_modif_quizz">
+                                    <label class="waves-effect waves-light"><i class="material-icons right">arrow_back</i>créer quizze
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <label class="lab_modif_quiz">
+                                        Modification Quizze
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p>
+                                    <label>
+                                        <input type="checkbox" id="ouver_fermer_quizz" class="filled-in" checked="checked" />
+                                        <span>Ouvert/Fermé</span>
+                                    </label>
+                                </p>
+                                <div class="input-field col l6">
+                                    <input id="titre_modif_quiz" type="text" class="validate">
+                                    <label class="active" for="titre_modif_quiz">Titre</label>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col l8">
+                                        <textarea id="desc_modif_quiz" class="materialize-textarea"></textarea>
+                                        <label class="active" for="desc_modif_quiz">Description</label>
+                                    </div>
+                                    <div class="row" id="content_affQuest_modif">
+                                    </div>
+                                </div>
+                                <div class="row" id="content_questionnaire_modif">
+                                </div>
+                            </div>
+                            <div class="row" id="content_envoyer_modif"> </div>
+                        </div>
+
+                        <div id="div_note_quizz">
+                            <div class="row">
+                                <div class="row">
+                                    <div class="retour_creer_quizz col l8" id="btn_retour_list_repondant">
+                                        <label class="waves-effect waves-light"><i class="material-icons right">arrow_back</i>créer quizze
+                                        </label>
+                                    </div>
+                                </div>
+                                <label class="lab_calnote_quiz">Calcul des notes des répondants</label>
+                                <div class="input-field col l6">
+                                    <h5 id="note_titr_quizze"></h5>
+                                    <h5 id="note_desc_quizze"></h5>
+                                </div>
+                            </div>
+                            <div id="note_content_proposition"></div>
+                            <div>
+                                <table class="striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Répondants</th>
+                                            <th>Note</th>
+                                            <th>Progression</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="repondant_tab_body">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Un dernier onglet pour ses propres réponses-->
+            <div id="id-my-answers">
+                <div class="row">
+                    <div class="col l8" id="id-mes-reponses-quiz"></div>
+                </div>
+            </div>
+        </div>
+        <div id="oveer-lay"></div>
+    </main>
+    <footer></footer>
+
+    <footer class="page-footer grey darken-1">
+        <div class="footer-copyright">
+            <div class="container">
+                CC BY-NC-SA 3.0 FR
+                <a class="grey-text text-lighten-4 right" href="https://lifap5.univ-lyon1.fr/">lifap5.univ-lyon1.fr</a>
+            </div>
+        </div>
+    </footer>
+    <!-- l'ordre compte dans les scripts : ils sont lues puis interprétés DANS L'ORDRE -->
+    <script type="text/javascript" src="js/websocket.js" defer></script>
+    <script type="text/javascript" src="js/modeles.js" defer></script>
+    <script type="text/javascript" src="js/vues.js" defer></script>
+    <script type="text/javascript" src="js/app.js" defer></script>
+</body>
+
+</html>

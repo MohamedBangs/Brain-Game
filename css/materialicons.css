@@ -1,0 +1,282 @@
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v50/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+#connex_box{
+     display: none;
+    position: fixed;
+    width: 40%;
+    margin-top: -30px;
+    margin-left: 450px;
+    margin-right: 350px;
+    border-radius: 12px;
+    background-color: white;
+    font-family: verdana, sans-serif;
+    color: black;
+    box-shadow: 2px 2px 3px;
+    z-index: 15;
+
+}
+#oveer-lay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 10;
+
+}
+#connex_box div{
+
+   display: block;
+   width: 90%;
+   height: 40px;
+   border-radius: 8px;
+   border: 1px solid black;
+   margin-left: 10px;
+   margin-bottom: 10px;
+   padding: 3px;
+
+}
+.connex_deconnex{
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    padding: 7px 2px 7px 2px;
+    color: black;
+}
+.lstname_label, .frstname_label, .apikey_label, .identif_label{
+
+    font-size: 20px;
+    text-align: left;
+    margin-left: 10px;
+    color: black;
+
+}
+#idfirsname_userConnecte, #idlstename_userConnecte,  #identif_userConnecte{
+    width: 95%;
+    font-size: 20px;
+    border:none;
+    padding: 1px 2px 4px 2px;
+    color: black;
+    font-weight: bold;
+   /* border-bottom: 1px solid black;*/
+}
+#idapikey_userConnecte{
+
+     display: inline;
+     width: 85%;
+    font-size: 20px;
+    border:none;
+    padding: 1px 2px 4px 2px;
+    color: black;
+    font-weight: bold;
+}
+
+#bttn_connex_deconnex{
+
+    font-size: 20px;
+    padding: 1px 2px 4px 2px;
+    border-radius: 8px;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+#bttn_deconnex{
+
+    font-size: 20px;
+    padding: 1px 2px 4px 2px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#btn_chnge_api, #btn_cancel{
+  cursor: pointer;
+}
+.sentnce{
+    font-weight: bold;
+    color: black;
+}
+.unquizz, #id-ajout-quizzes{
+
+    box-shadow: 1px 1px 2px;
+    padding: 5px 5px 5px 15px;
+    background-color: white;
+    margin-top:10px;
+}
+.unquizz h4{
+
+    font-weight: bold;
+}
+.unquizz p{
+  font-size: 20px;
+  font-family: verdana, sans-serif;
+}
+.unquizz span{
+  font-size: 18px;
+  color: black;
+  margin-right: 15px;
+  margin-left: -5px;
+}
+.unquizz input{
+  width: 50px;
+  height: 50px;
+}
+.reponse-quizz-user .choixuser{
+   color: green;
+  font-family: verdana, sans-serif;
+  font-weight: bold;
+  text-decoration: underline;
+}
+#info-user{
+  display: none;
+  box-shadow: 1px 1px 2px;
+  background-color: red;
+  font-size: 20px;
+  color: white;
+}
+.modifQuestion{
+  color:white;
+  float:left;
+  box-shadow: 1px 1px 2px;
+  border-radius: 4px;
+  background-color: green;
+  cursor: pointer;
+  padding: 1px 0px 0px 2px;
+}
+.ajoutQuest{
+  color:white;
+  float:right;
+  box-shadow: 1px 1px 2px;
+  border-radius: 4px;
+  background-color: green;
+  cursor: pointer;
+  padding: 1px 0px 0px 2px;
+}
+.ajt_propositon{
+  float: right;
+  background-color: white;
+  text-align: right;
+}
+.retour_creer_quizz{
+  float: left;
+  background-color: white;
+  text-align: left;
+  margin-left: 0px;
+}
+.ajt_propositon label, .retour_creer_quizz label{
+    color: white;
+    box-shadow: 1px;
+    border-radius: 8px;
+    background-color: green;
+    padding: 1px 0px 0px 2px;
+}
+#div_Ajoute_Question, #div_modif_Quizz, #div_note_quizz{
+    display: none;
+   /* box-shadow: 1px 1px 2px;*/
+    padding: 5px 5px 5px 15px;
+    background-color: white;
+    margin-top:10px;
+    margin-right: 25px;
+}
+#div_creer_cmpte{
+  margin-right: 25px;
+}
+.texte{
+  color: red;
+  font-family: verdana, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+.qcmferme{
+  cursor: pointer;
+  background-color: red;
+}
+#txteAvertissement, #etatConnexion{
+  display: none;
+  color: white;
+  background-color: red;
+  font-weight: bold;
+}
+#id-login{
+  cursor: pointer;
+}
+.lab_modif_quiz, .lab_calnote_quiz{
+  width: 100%;
+  margin:5px;
+  font-family: verdana;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  background-color: #CCC;
+  height: 43px;
+  padding: 8px;
+  border-radius: 4px;
+  float: left;
+}
+#content_questionnaire_modif{
+  padding-left: 2%;
+  padding-right: 3%;
+}
+.btnSuprimer{
+  background-color:red;
+  border-radius: 8px;
+  color:white;
+  cursor: pointer;
+}
+.btnSuprimer:hover{
+  background-color:#8B0000;
+}
+.listeRepondant{
+    color: green;
+    text-decoration: underline;
+    font-size: 19px;
+    font-family: verdana, sans-serif;
+    cursor: pointer;
+    margin-left: 10%;
+}
+.listeRepondant:hover{
+    color: rgb(0,100,0);
+}
+li{
+  cursor: pointer;
+}
+#search{
+  cursor: pointer;
+  border-radius: 12px;
+}
+#container_search{
+ border-radius: 12px; 
+ height: 40px;
+ margin: 20px 5px 1px 20px;
+}
+#id-login{
+  margin: 10px;
+}
+nav{
+  font-weight: bold;
+}
